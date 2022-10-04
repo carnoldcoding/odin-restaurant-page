@@ -1,1 +1,3 @@
-console.log("Working");
+import "./styles.scss"
+
+console.log("Working On it");
