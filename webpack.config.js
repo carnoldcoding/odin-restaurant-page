@@ -12,6 +12,13 @@ module.exports = {
     ignored: /node_modules/,
     aggregateTimeout: 2000
   },
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, 'dist'),
+    },
+    compress: true,
+    port: 9000,
+  },
   module: {
     rules: [
       {
