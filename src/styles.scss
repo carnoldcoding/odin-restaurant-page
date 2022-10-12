@@ -1,5 +1,73 @@
+//Imports
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=EB+Garamond&family=Josefin+Slab:wght@400;500&display=swap');
+
+//Configs
+$nav-color: #ffd256;
+$nav-hover-color: #ffdc7c;
+
+//Mixins
+@mixin font-title{
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 30px;
+    font-weight: 400; // 400 | 700
+}
+
+@mixin font-header{
+    font-family: 'EB Garamond', serif;
+    font-size: 20px;
+}
+
+@mixin font-general{
+    font-family: 'Josefin Slab', serif;
+    font-weight: 400; //400 | 500
+}
+
+@mixin transition{
+    transition: all .2s ease;
+}
+
+@mixin nav-text{
+    @include transition;
+    @include font-header;
+    color: black;
+}
+
+//CSS
 *{
     margin: 0;
     padding: 0;
     outline: 0;
+}
+
+.content{
+    height: 100vh; //Debugging
+
+    .navbar-container{
+        display: flex;
+        justify-content: center;
+        height: 80px;
+        background-color: $nav-color;
+        .nav{
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            width: 500px;
+            align-items: center;
+            list-style: none;
+            text-transform: uppercase;
+            li{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                width: 100%;
+                @include nav-text;
+
+                &:hover{
+                    background: $nav-hover-color;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
 }

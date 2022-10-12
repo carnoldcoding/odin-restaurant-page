@@ -7,7 +7,7 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
   },
-  watch: true,
+  watch: true, //Every time a file is changed rerun webpack build
   watchOptions:{
     ignored: /node_modules/,
     aggregateTimeout: 2000
