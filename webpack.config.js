@@ -7,7 +7,7 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
   },
-  watch: true, //Every time a file is changed rerun webpack build
+  //watch: true, //Every time a file is changed rerun webpack build
   watchOptions:{
     ignored: /node_modules/,
     aggregateTimeout: 2000
@@ -31,6 +31,10 @@ module.exports = {
           // Compiles Sass to CSS
           "sass-loader",
         ],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i, //Regex to identify file types
+        type: 'asset/resource', //Flag for webpack
       },
     ],
   },

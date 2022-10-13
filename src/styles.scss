@@ -4,6 +4,7 @@
 //Configs
 $nav-color: #ffd256;
 $nav-hover-color: #ffdc7c;
+$menu-bg: #ffe8aa;
 
 //Mixins
 @mixin font-title{
@@ -30,42 +31,145 @@ $nav-hover-color: #ffdc7c;
     @include transition;
     @include font-header;
     color: black;
+    font-size: 23px;
 }
 
 //CSS
+h1{
+    @include font-title;
+    font-size: 40px;
+}
+body{
+    background: rgb(255, 243, 226);
+}
 *{
     margin: 0;
     padding: 0;
     outline: 0;
 }
 
+.navbar-container{
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    background-color: $nav-color;
+    .nav{
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        width: 500px;
+        align-items: center;
+        list-style: none;
+        text-transform: uppercase;
+        li{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            @include nav-text;
+
+            &:hover{
+                background: $nav-hover-color;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
 .content{
     height: 100vh; //Debugging
 
-    .navbar-container{
+    .spotlight{
+        height: 400px;
+        background: url("./assets/spotlight-bg.jpg");
+        background-position-y: bottom;
+        background-position-x: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .menu-container{
         display: flex;
         justify-content: center;
-        height: 80px;
-        background-color: $nav-color;
-        .nav{
-            height: 100%;
+        height: 400px; //Debugging
+        .menu-wrapper{
+            position: relative;
+            padding: 20px;
+            top: -50px;
             display: flex;
-            justify-content: space-around;
-            width: 500px;
+            flex-direction: column;
             align-items: center;
-            list-style: none;
-            text-transform: uppercase;
-            li{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100%;
-                width: 100%;
-                @include nav-text;
+            background: $menu-bg;
+            width: clamp(400px, 50vw, 800px);
+            border-radius: 1rem;
+            border: 2.5px solid rgb(187, 66, 66);
+            box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.295);
+
+            .profile-pic{
+                position: absolute;
+                left: -50px;
+                top: -100px;
+                height: 200px;
+                width: 200px;
+                background-image: url("./assets/profile.jpg");
+                background-size: contain;
+                background-repeat: no-repeat;
+                border-radius: 100%;
+                border: 2.5px solid rgb(187, 66, 66);
+                @include transition;
 
                 &:hover{
-                    background: $nav-hover-color;
-                    cursor: pointer;
+                    transform: scale(1.1);
+                }
+            }
+
+            .menu-items{
+                width: 100%;
+                list-style: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 1rem;
+                .menu-headers{
+                    display: flex;
+                    .menu-icon{
+                        width: 50px;
+                        background: url("./assets/appetizer-icon.png") no-repeat;
+                    }
+                    h1{
+                        font-size: 30px;
+                    }
+                }
+                li{
+                    width: 70%;
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    margin-bottom: 20px;
+                    div{
+                        display: flex;
+                    }
+                    .item-name{
+                        p{
+                            position: relative;
+                        }
+                    }
+
+                    .dots{
+                        justify-content: center;
+                        border-bottom: 2px dotted rgb(126, 41, 41);
+                        margin: 0 5px;
+                    }
+
+                    .price{
+                        justify-content: flex-start;
+                    }
+                    .description{
+                        font-size: 13px;
+                        color:rgb(187, 66, 66);
+                        grid-column: 1 / 4;
+                    }
                 }
             }
         }
