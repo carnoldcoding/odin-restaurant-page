@@ -17,7 +17,7 @@ module.exports = {
       directory: path.resolve(__dirname, 'dist'),
     },
     compress: true,
-    port: 9000,
+    port: 9001,
   },
   module: {
     rules: [
@@ -33,7 +33,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i, //Regex to identify file types
+        test: /\.(svg|jpg|jpeg|gif)$/i, //Regex to identify file types
         type: 'asset/resource', //Flag for webpack
       },
     ],
