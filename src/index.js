@@ -1,4 +1,6 @@
 import "./styles.scss"
-import sidebar from "./sidebar"
+import Nav from "./navbar";
+import Menu from "./menu"
 
-sidebar();
+Nav.create();
+Menu.create();
