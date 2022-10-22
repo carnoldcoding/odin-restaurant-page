@@ -1,5 +1,6 @@
 import Menu from "./menu"
 import About from "./about"
+import Order from "./order"
 
 const createElementFromHTML = function(html){
     const template = document.createElement("template");
@@ -24,6 +25,9 @@ const Nav = (function(){
         })
         document.querySelector(".nav > li:nth-child(2)").addEventListener("click", ()=>{
             About.create(); 
+        })
+        document.querySelector(".nav > li:nth-child(3)").addEventListener("click", ()=>{
+            Order.create(); 
         })
         }
     return{
