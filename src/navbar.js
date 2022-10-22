@@ -1,3 +1,6 @@
+import Menu from "./menu"
+import About from "./about"
+
 const createElementFromHTML = function(html){
     const template = document.createElement("template");
     template.innerHTML = html.trim();
@@ -15,13 +18,16 @@ const Nav = (function(){
             </ul>
             </div>
             `));
+
+        document.querySelector(".nav > li:nth-child(1)").addEventListener("click", ()=>{
+            Menu.create(); 
+        })
+        document.querySelector(".nav > li:nth-child(2)").addEventListener("click", ()=>{
+            About.create(); 
+        })
         }
-    const remove = function(){
-        document.querySelector(".navbar-container").remove();
-    }
     return{
-        create,
-        remove
+        create
     }
 })();
 

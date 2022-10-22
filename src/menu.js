@@ -6,7 +6,12 @@ const createElementFromHTML = function(html){
 
 const Menu = (function(){
     const create = function(){
-        document.querySelector(".content").appendChild(createElementFromHTML(`
+        const content = document.querySelector(".content");
+        content.textContent = "";
+        content.appendChild(createElementFromHTML(`
+            <div class="spotlight"></div>
+        `))
+        content.appendChild(createElementFromHTML(`
         <div class="menu-container">
         <div class="menu-wrapper">
             <div class="profile-pic"></div>
@@ -41,12 +46,8 @@ const Menu = (function(){
     </div>
         `));
     }
-    const remove = function(){
-        document.querySelector(".menu-container").remove();
-    }
     return {
-        create, 
-        remove
+        create
     }
 })();
 
